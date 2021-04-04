@@ -26,7 +26,7 @@ repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-m
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : "/assets/images/rkeytech.io-logo.png"
 masthead_title           : " "
-breadcrumbs            : true # true, false (default)
+breadcrumbs              : true # true, false (default)
 words_per_minute         : 200
 comments:
   provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
@@ -102,7 +102,8 @@ analytics:
 author:
   name             : "Randi Ratnayake"
   avatar           : "/assets/images/RR-Profile-Picture.jpg"
-  bio              : "I am an **amazing** person."
+  bio              : |
+    An architect, consultant, speaker, mentor, and Microsoft certified trainer in cloud computing.
   location         : "Melbourne, Australia"
   email            :
   linkedin         : "randiratnayake"
@@ -272,5 +273,17 @@ defaults:
       author_profile: true
       read_time: true
       comments: # true
+      share: true
+      related: true
+
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+      read_time: false
+      comments: false
       share: true
       related: true
