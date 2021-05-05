@@ -6,6 +6,8 @@ categories:
     - General
 tags:
     - General
+header:
+  teaser: "/media/2021/hello-world.jpg"
 ---
 
 If you are a developer like me, it is not unusual what a "**Hello World**" means. It is the simplest fundamental way of ensuring your program or code is working in a new language. In a way, it's your first step towards the incredible journey ahead.
