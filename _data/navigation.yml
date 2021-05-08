@@ -1,10 +1,18 @@
 # main links
 main:
-  - title: "Home"
-    url: /
-  - title: "Posts"
-    url: /recent
   - title: "About"
     url: /about
   - title: "Contact"
     url: /contact
+sidebar:
+  - title: Home
+    url: /
+  - title: Archives
+    children:
+      - title: Posts by Category
+        url: /categories
+      - title: Posts by Tags
+        url: /tags
+      - title: Posts by Year
+        url: /year-archive
+    
