@@ -39,7 +39,7 @@ System-assigned managed identities associated with the resource itself. The life
 
 To enable system-assigned managed identity in Bicep, you can add the `identity` property with the value for the `type` property as`'SystemAssigned'`.
 
-```text
+```bicep
 resource <resource-symbolic-name> '<resource-type>@<api-version>' = { 
   name: '${resourceName}'
   location: '${resourceLocation}'
@@ -55,7 +55,7 @@ resource <resource-symbolic-name> '<resource-type>@<api-version>' = {
 
 Or can be achieved via the Azure CLI command below.
 
-```
+```bash
 az <resource-type> identity assign -g <resource-group-name> -n <resource-symbolic-name>
 ```
 
@@ -65,7 +65,7 @@ Instead of an identity tightly coupled with a single Azure resource, you may cre
 
 The following Bicep snippet creates a user-assigned manage identity.
 
-```text
+```bicep
 resource <identity-resource-name> 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-11-30' = {    
   name: 'string'
   location: 'string'
@@ -78,7 +78,7 @@ resource <identity-resource-name> 'Microsoft.ManagedIdentity/userAssignedIdentit
 
 Using the Azure CLI command below, we can achieve the same.
 
-```
+```bash
 az identity create -n <identity-resource-name> -g <resource-group-name> 
 ```
 
@@ -93,7 +93,7 @@ The below Bicep snippet shows how to associate the created identity with Azure r
 
 ***Note:*** The code snippet assumes the managed identity already exists. Suppose your code provisioned the managed identity within the same template (similar to above). Then, you can skip the first part and use the symbolic name directly to get its (fully qualified) Id.
 
-```text
+```bicep
 resource userAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-11-30' existing = {
   name: <identity-resource-name>
 }
@@ -113,9 +113,10 @@ resource <resource-symbolic-name> '<resource-type>@<api-version>' = {
   }
 }
 ```
+
 Here is the Azure CLI equivalent for the same.
 
-```
+```bash
 az <resource-type> identity assign -g <resource-group-name> -n <resource-symbolic-name> --identities <identity-resource-fully-qualified-id>
 ```
 
