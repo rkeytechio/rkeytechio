@@ -1,6 +1,6 @@
 ---
 title: "Tagging Azure Resources in Bicep - The Clean Way"
-date: 2021-07-07
+date: 2022-08-03
 comments: true
 toc: true
 categories: 
