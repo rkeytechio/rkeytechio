@@ -14,7 +14,7 @@ If you are a developer like me, it is not unusual what a "**Hello World**" means
 
 So here I begin mine.
 
-{% highlight ruby %}
+```ruby
 
 def print_sayHello(name)
   puts "Hello World - #{name}"
@@ -23,7 +23,7 @@ end
 print_sayHello('rkeytech.io')
 
 #=> prints 'Hello World - rkeytech.io'
-{% endhighlight %}
+```
 
 ### The Big Why
 
