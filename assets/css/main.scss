@@ -7,7 +7,7 @@
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
-$brand-colour:(217, 25, 25);
+$brand-colour: rgb(217, 25, 25);
 $white: white;
 
 .bg-landing {
