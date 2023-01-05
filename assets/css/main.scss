@@ -8,13 +8,13 @@
 @import "minimal-mistakes"; // main partials
 
 $brand-colour: rgb(200, 20, 20);
+$brand-acent-color: rgb(100, 20, 20);
 $white: white;
-$link-color: rgb(100, 20, 20);
 
 a {
-  color: $link-color;
+  color: $brand-acent-color;
   &:visited {
-    color: $link-color;
+    color: $brand-acent-color;
   }
   &:hover {
     color: $brand-colour;
@@ -28,7 +28,7 @@ a {
 }
 
 .bg-landing {
-    background-color: $brand-colour !important;
+    background-image: linear-gradient(180deg, $brand-colour, $brand-acent-color);
 }
 
 @media (min-width: 576px) {
