@@ -10,6 +10,12 @@
 $brand-colour: rgb(217, 25, 25);
 $white: white;
 
+.greedy-nav, .greedy-nav a, .search__toggle, .masthead {
+  background-color: $brand-colour !important;
+  color: $white !important;
+  background: $white;
+}
+
 .bg-landing {
     background-color: $brand-colour !important;
 }
