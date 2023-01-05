@@ -7,8 +7,19 @@
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
-$brand-colour: rgb(217, 25, 25);
+$brand-colour: rgb(200, 20, 20);
 $white: white;
+$link-color: rgb(100, 20, 20);
+
+a {
+  color: $link-color;
+  &:visited {
+    color: $link-color;
+  }
+  &:hover {
+    color: $brand-colour;
+  }
+}
 
 .greedy-nav, .greedy-nav a, .search__toggle, .masthead {
   background-color: $brand-colour !important;
