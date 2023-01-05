@@ -5,8 +5,8 @@ main:
   - title: "Contact"
     url: /contact
 sidebar:
-  - title: Home
-    url: /
+  - title: All Blogs
+    url: /blogs
   - title: Archives
     children:
       - title: Posts by Category
