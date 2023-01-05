@@ -7,8 +7,11 @@
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
+$brand-colour:(217, 25, 25);
+$white: white;
+
 .bg-landing {
-    background-color: rgb(217, 25, 25);
+    background-color: $brand-colour !important;
 }
 
 @media (min-width: 576px) {
