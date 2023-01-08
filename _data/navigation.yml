@@ -10,9 +10,9 @@ sidebar:
   - title: Archives
     children:
       - title: Posts by Category
-        url: /categories
+        url: /blogs/categories
       - title: Posts by Tags
-        url: /tags
+        url: /blogs/tags
       - title: Posts by Year
-        url: /year-archive
+        url: /blogs/year-archive
     
