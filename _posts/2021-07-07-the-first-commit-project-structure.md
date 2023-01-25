@@ -1,5 +1,5 @@
 ---
-title: "The first commit - Project Strcture"
+title: "The first commit - Project Structure"
 date: 2021-07-07
 comments: true
 toc: true
