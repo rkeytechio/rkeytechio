@@ -10,7 +10,7 @@ tags:
     - Bicep
     - Best Practices
 header:
-  teaser: "/media/2023/2023-01-25/teaser.png"
+  teaser: "/media/2023/teasers/structuring-maintainable-bicep-code.png"
 
 excerpt: "Bicep is a Domain Specific Language (DSL) that defines and uses to deploy Azure resources. It provides a declarative way to express infrastructure as code (IaC) and enables you to define, manage effectively, and version your Azure deployments. It is crucial to structure your code properly for a maintainable and scalable Bicep project. This blog post will explore the best practices and guidelines I followed for structuring the Bicep codebase."
 ---

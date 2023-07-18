@@ -11,7 +11,7 @@ tags:
     - Tagging
     - Best Practices
 header:
-  teaser: "/media/2022/2022-08-03/teaser.png"
+  teaser: "/media/2022/teasers/tagging-azure-resources-in-bicep-the-clean-way.png"
 
 excerpt: "Azure allows organisations an efficient way to classify Azure resources using tags. Azure tags are key-value pairs defined by users to manage and organise Azure resources for monitoring, billing and automation purposes. In this post, we look at how we do this effectively and cleanly using Azure Bicep and its native capabilities."
 ---

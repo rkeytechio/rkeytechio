@@ -10,7 +10,7 @@ tags:
     - Bicep
     - Pipelines
 header:
-  teaser: "/media/2022/2022-08-17/teaser.png"
+  teaser: "/media/2022/teasers/set-bicep-outputs-variables-as-ado-pipeline-variables.png"
 
 ---
 

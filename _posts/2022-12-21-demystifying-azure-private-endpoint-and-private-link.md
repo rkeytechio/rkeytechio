@@ -9,7 +9,7 @@ tags:
     - Azure Network Security
     - Best Practices
 header:
-  teaser: "/media/2022/2022-12-21/teaser.png"
+  teaser: "/media/2022/teasers/demystifying-azure-private-endpoint-and-private-link.png"
 
 excerpt: "Azure allows organisations to connect to cloud resources in many ways securely. Azure Private Endpoints and Private Links are two powerful features this blog post will explore to understand when they are best to use to make your cloud environment compliant with many industry standards."
 ---
