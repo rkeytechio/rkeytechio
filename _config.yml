@@ -101,7 +101,7 @@ analytics:
 # Site Author
 author:
   name             : "Randi Ratnayake"
-  avatar           : "/assets/images/RR-Profile-Picture.jpg"
+  avatar           : "/assets/images/RR-Profile-Picture.png"
   bio              : |
     Cloud Architect \| DevSecOps Evangelist \| Mentor
   location         : "Melbourne, Australia"

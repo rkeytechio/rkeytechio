@@ -129,7 +129,7 @@
 .list__item {
   .page__meta {
     margin: 0 0 4px;
-    font-size: 0.6em;
+    font-size: $type-size-6;
   }
 }
 
@@ -200,7 +200,7 @@
 
   .page__meta {
     margin: 0 0 4px;
-    font-size: 0.6em;
+    font-size: $type-size-6;
   }
 
   .page__meta-sep {
@@ -213,7 +213,7 @@
 
   .archive__item-title {
     margin-top: 0.5em;
-    font-size: $type-size-5;
+    font-size: $type-size-6;
   }
 
   .archive__item-excerpt {
