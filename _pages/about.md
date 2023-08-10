@@ -1,13 +1,23 @@
 ---
-title: "About Me"
-author_profile: true
+title: "About Author"
+layout: single
+excerpt: 'Cloud Architect | DevSecOps Evangelist | Mentor'
+sitemap: false
+author_profile: false
 permalink: /about/
 share: false
 ---
-<br />
-I would introduce myself in five words: **thinker**, **solver**, **challenge seeker** and **mentor**. I look at practical ways of achieving the unimaginable in work or personal life. I like my imagination without boundaries. Often try to go beyond my expectations in all roles I have in life, trying to deliver the best attainable outcome to any of my duties.
+Hey there
+<img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" alt="hand wave" width="25px">, **I'm Randi**! Thank you for stopping by **rkeytech.io**
 
-I have been a consultant and an all-rounder **full-stack software developer** in my early days. Predominantly, my experience has been in **Microsoft technologies** for more than a decade. I still love to cut code. Solve puzzles. I can not imagine myself without opening my favourite IDE Visual Studio once a day. Even on the weekend (_If time allows_) to help someone in <a
+It is my way of giving back to my (Tech) community. This is my space to express my views and share knowledge and best practices in various areas I have worked on and am passionate about. It is my way of saying Thank you!
+
+## 😄 About Me
+<img class="img-fluid w-50" src="/assets/images/RR-Profile-Picture.png" alt="RR" width="300px" style="display: block;margin-left: auto;margin-right: auto;">
+I am a **thinker**, **solver**, **challenge seeker** and **mentor**. I look at practical ways of achieving innovation in work or personal life. I like my imagination without boundaries and always go beyond my comfort zone to deliver the best attainable outcome to my duties.
+
+## 👨‍💻What I do
+I work as a Cloud Architect, DevSecOps Evangelist and Mentor in my current role. I am a **consultant** and a **full-stack software developer** in my heart. My experience has been in **Microsoft** stack for more than a decade. I still love to cut code when I get a chance. Even on the weekend (_If time allows_) to help someone in <a
     href="https://stackoverflow.com/users/{{ site.author.stackoverflow }}" target="_blank" rel="nofollow noopener noreferrer">
     <i class="fab fa-fw fa-stack-overflow" aria-hidden="true"></i>
     StackOverflow
@@ -20,21 +30,19 @@ or to create a
 </a>
 pull request.
 
-However, **as an architect** at present, more of my work is to assist my clients and teams in leveraging the cloud technologies like **Azure** and **Aws** and helping them thrive in their cloud adoption journey.
+As a **Cloud Architect**, I assist my clients and teams in leveraging cloud technologies like **Azure** and **Aws** nd help them thrive in their cloud adoption journey. **DevSecOps** is my speciality and what I am passionate about the most. Beyond all, I like to share my experience and knowledge. So as a **Microsoft certified trainer**, I train teams who wish to get on top of the Azure technology stack.
 
-I am also very passionate about **DevOps** and delivering continuously improved solutions. As a **certified DevSecOps expert**, I implement security-focused DevOps best practices and train staff and business stakeholders to deliver agile projects with fast go-to-market strategies in place. Also, as a **Microsoft certified trainer**, I provide training to teams who wish to get on top of the Azure technology stack. I love evolving with technology and am never hesitant to try new things.
+## ✍Desclaimer
+Consider any opinions expressed here are as my own.
 
-From a background in finance and accounting to my journey to become an architect was never a smooth one. I had to learn things the hard way. But fast. I had struggles finding the optimum and up to date solutions for problems. I may have read hundreds of blogs and watched hours of content on the internet to learn my way here. I was also privileged to have many good mentors, colleagues and friends who helped me along the way without expecting anything in return.
-
-The **rkeytech.io** is my way of giving back to my (Tech) community. I would use this space to express my views and share my technical knowledge and best practices in various areas I have worked on and am currently learning. Consider any opinions expressed here as my own.
-
-So this is my payback. It is my way of saying **Thank you!**
-
-Randi Ratnayake
-<br />
-[Microsoft Certified Architect & Trainer](https://www.credly.com/users/randiratnayake){:target="_blank"}
-
-![Accreditations](\assets\images\rr-accreditations.jpg)
+## 😜I like good humor and here is a one for you 
+![Jokes Placeholder](https://readme-jokes.vercel.app/api)
 
 
+## 📫 Contact Info
 
+Here is how to get in touch with me:
+<p align='center'>
+    <a rel="me" href="https://www.linkedin.com/in/randiratnayake/"><img alt="LinkedIn" src="https://img.shields.io/badge/linkedin-0077B5?logo=linkedin&logoColor=white&style=for-the-badge"></a>
+    <a rel="me" href="https://twitter.com/rkeytechio"><img height="30" alt="Twitter" src="https://img.shields.io/badge/Twitter-1DA1F2?logo=twitter&logoColor=white&style=for-the-badge"></a>
+</p>
