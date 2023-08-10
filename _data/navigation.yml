@@ -1,9 +1,9 @@
 # main links
 main:
+  - title: "Speaking Events"
+    url: /events
   - title: "About"
     url: /about
-  - title: "Contact"
-    url: /contact
 sidebar:
   - title: Home
     url: /dashboard
