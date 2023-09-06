@@ -22,16 +22,15 @@ In this post, we will dive deep into understanding how Azure API-M fits in the i
 
 **Navigate in Blog Series**
 - Azure API Management (API-M) Overview [👈This]
-- Workspace Design [📝 Coming Next]
-- Products Design
-- Versioning Strategy
+- [Designing API Products](/blogs/2023/09/azure-apim-designing-products) :arrow_upper_right:
+- Revision and Versioning Strategy
 - Policy Development
+- Security Considerations
 - Project Structure
-- Security Best Practices
 - Monitoring Analytics
 - API Documentation
-- Development Workflow & CI/CD
-- Developer Portal CI/CD
+- Development Workflow & APIs CI/CD
+- Automating Developer Portal via CI/CD
 {: .notice--primary}
 
 # Integration Platform as a Service (iPaaS)
@@ -200,12 +199,12 @@ Lastly, implementing the bare bones of API-M is simply a few commands or a few l
 
 There are several ways we can spin up an Azure API-M instance. However, with automation and best practices in mind, the following are the ideal ways to provision API-M via CI/CD Pipelines.
 
-### Azure CLI
+## Azure CLI
 
 ```bash
 az apim create --name apim-rkt-demo --resource-group rg-rkt-apim-demo --publisher-name rkeytech.io --publisher-email apim@rkeytech.io --no-wait
 ```
-### Bicep
+## Bicep
 
 ```bicep
 resource apiManagementService 'Microsoft.ApiManagement/service@2023-03-01-preview' = {
@@ -219,6 +218,7 @@ resource apiManagementService 'Microsoft.ApiManagement/service@2023-03-01-previe
 ```
 
 # Conclusion
+
 Azure API Management (API-M) is a powerful service that simplifies managing APIs, offering enhanced developer experiences and robust security features. With the Developer Portal and analytics capabilities, organisations can optimise their API strategies and foster developer engagement. By following best practices, organisations can ensure the success of their API-M implementations and provide a seamless experience to API consumers. In the rest of the series, we will dive deep into Product and API design considerations, Version strategy, security best practices, policy development and prevention abuse, monitoring and analytics and on each stream, we will look into CI/CD automation.
 
 Stay Tuned for More 😊 See you in the next one!
