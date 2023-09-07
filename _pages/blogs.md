@@ -1,6 +1,6 @@
 ---
 layout: home
 author_profile: true
-permalink: /dashboard/
+permalink: /blogs/
 share: false
 ---

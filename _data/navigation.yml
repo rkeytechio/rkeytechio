@@ -6,7 +6,7 @@ main:
     url: /about
 sidebar:
   - title: Home
-    url: /dashboard
+    url: /blogs
   - title: Archives
     children:
       - title: Posts by Category
