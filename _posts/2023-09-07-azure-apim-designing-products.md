@@ -22,7 +22,7 @@ This blog is a multi-part series, and visit other sections for a complete unders
 **Navigate in Blog Series**
 - [Azure API Management (API-M) Overview](/blogs/2023/09/azure-api-management-series-overview) :arrow_upper_right:
 - Designing API Products  [👈You are here]
-- Revision and Versioning Strategy [📝 Coming Next]
+- [Versioning and Revisioning](/blogs/2023/09/azure-apim-versioning-and-revisioning) :arrow_upper_right:
 - Policy Development
 - Security Considerations
 - Project Structure

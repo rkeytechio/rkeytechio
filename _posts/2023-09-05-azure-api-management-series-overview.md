@@ -23,7 +23,7 @@ In this post, we will dive deep into understanding how Azure API-M fits in the i
 **Navigate in Blog Series**
 - Azure API Management (API-M) Overview [👈This]
 - [Designing API Products](/blogs/2023/09/azure-apim-designing-products) :arrow_upper_right:
-- Revision and Versioning Strategy
+- [Versioning and Revisioning](/blogs/2023/09/azure-apim-versioning-and-revisioning) :arrow_upper_right:
 - Policy Development
 - Security Considerations
 - Project Structure
