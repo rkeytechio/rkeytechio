@@ -23,7 +23,7 @@ This blog is a multi-part series, and visit other sections for a complete unders
 - [Azure API Management (API-M) Overview](/blogs/2023/09/azure-api-management-series-overview) :arrow_upper_right:
 - Designing API Products  [👈You are here]
 - [Versioning and Revisioning](/blogs/2023/09/azure-apim-versioning-and-revisioning) :arrow_upper_right:
-- Policy Development
+- [Understanding and Designing Policies](/blogs/2023/09/azure-apim-understanding-and-designing-policies) :arrow_upper_right:
 - Security Considerations
 - Project Structure
 - Monitoring Analytics
