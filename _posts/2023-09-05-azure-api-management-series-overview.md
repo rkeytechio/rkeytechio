@@ -1,5 +1,5 @@
 ---
-title: "Azure API Management (API-M) Overview"
+title: Azure API Management (API-M) Overview
 date: 2023-09-05
 comments: true
 toc: true
@@ -13,7 +13,7 @@ tags:
 header:
   teaser: "/media/2023/teasers/azure-apim-s01p01.png"
 
-excerpt: "Azure API Management (API-M) is a fully managed service offered by Microsoft Azure that enables organisations to create, publish, secure, and manage APIs at scale. It acts as a gateway between backend services and consumers. It provides a unified platform for API creators, administrators, and developers to collaborate and manage the entire API lifecycle efficiently. This post is first in its series that will examine how Azure API-M fits in the iPaaS architecture and several key features it offers to API developers and consumers."
+excerpt: Azure API Management (API-M) is a fully managed service offered by Microsoft Azure that enables organisations to create, publish, secure, and manage APIs at scale. It acts as a gateway between backend services and consumers. It provides a unified platform for API creators, administrators, and developers to collaborate and manage the entire API lifecycle efficiently. This post is first in its series that will examine how Azure API-M fits in the iPaaS architecture and several key features it offers to API developers and consumers.
 ---
 
 Azure API Management (API-M) is a fully managed service offered by Microsoft Azure that enables organisations to create, publish, secure, and manage APIs at scale. It acts as a gateway between backend services and consumers. It provides a unified platform for API creators, administrators, and developers to collaborate and manage the entire API lifecycle efficiently. Due to the nature of its broad capabilities and design flexibility, I am going to develop this as a multi-part blog series.
@@ -25,7 +25,7 @@ In this post, we will dive deep into understanding how Azure API-M fits in the i
 - [Designing API Products](/blogs/2023/09/azure-apim-designing-products) :arrow_upper_right:
 - [Versioning and Revisioning](/blogs/2023/09/azure-apim-versioning-and-revisioning) :arrow_upper_right:
 - [Understanding and Designing Policies](/blogs/2023/09/azure-apim-understanding-and-designing-policies) :arrow_upper_right:
-- Security Considerations
+- [Security Best Practices](/blogs/2023/10/azure-apim-security-best-practices) :arrow_upper_right:
 - Project Structure
 - Monitoring Analytics
 - API Documentation

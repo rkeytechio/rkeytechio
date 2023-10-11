@@ -8,12 +8,11 @@ categories:
 tags:
     - API-M
     - Bicep
-    - Azure CLI
     - Zero To Hero
 header:
   teaser: "/media/2023/teasers/azure-apim-s01p03.png"
 
-excerpt: "Changes and enhancements are inevitable in any product that wants to keep up with evolving requirements. Azure API Management (API-M) offers offers robust features to facilitate this process. One of the key aspects of API Management is revisioning and versioning, which ensures that our APIs remain functional and relevant as our service evolves. In this post, we will explore the concepts of revisioning and versioning in Azure API Management, learn how to leverage these capabilities effectively and discuss some design considerations."
+excerpt: Changes and enhancements are inevitable in any product that wants to keep up with evolving requirements. Azure API Management (API-M) offers offers robust features to facilitate this process. One of the key aspects of API Management is revisioning and versioning, which ensures that our APIs remain functional and relevant as our service evolves. In this post, we will explore the concepts of revisioning and versioning in Azure API Management, learn how to leverage these capabilities effectively and discuss some design considerations.
 ---
 
 This blog is a multi-part series, and visit related topics for a complete understanding of the overall API-M solution.
@@ -23,7 +22,7 @@ This blog is a multi-part series, and visit related topics for a complete unders
 - [Designing API Products](/blogs/2023/09/azure-apim-designing-products) :arrow_upper_right:
 - Versioning and Revisioning  [👈You are here]
 - [Understanding and Designing Policies](/blogs/2023/09/azure-apim-understanding-and-designing-policies) :arrow_upper_right:
-- Security Considerations
+- [Security Best Practices](/blogs/2023/10/azure-apim-security-best-practices) :arrow_upper_right:
 - Project Structure
 - Monitoring Analytics
 - API Documentation

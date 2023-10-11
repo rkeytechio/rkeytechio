@@ -8,7 +8,6 @@ categories:
 tags:
     - API-M
     - Bicep
-    - Azure CLI
     - Zero To Hero
 header:
   teaser: "/media/2023/teasers/azure-apim-s01p02.png"
@@ -24,7 +23,7 @@ This blog is a multi-part series, and visit other sections for a complete unders
 - Designing API Products  [👈You are here]
 - [Versioning and Revisioning](/blogs/2023/09/azure-apim-versioning-and-revisioning) :arrow_upper_right:
 - [Understanding and Designing Policies](/blogs/2023/09/azure-apim-understanding-and-designing-policies) :arrow_upper_right:
-- Security Considerations
+- [Security Best Practices](/blogs/2023/10/azure-apim-security-best-practices) :arrow_upper_right:
 - Project Structure
 - Monitoring Analytics
 - API Documentation
