@@ -15,7 +15,6 @@ source "https://rubygems.org"
 
 gem "jekyll"
 gem "minimal-mistakes-jekyll"
-gem "jemoji"
 
 # The following plugins are automatically loaded by the theme-gem:
 #   gem "jekyll-paginate"
@@ -27,5 +26,10 @@ gem "jemoji"
 # If you have any other plugins, put them here!
 # Cf. https://jekyllrb.com/docs/plugins/installation/
 group :jekyll_plugins do
-end
-gem "webrick", "~> 1.7"
+    gem "jekyll-mentions"
+    gem "webrick"
+    gem "jekyll-redirect-from"
+    gem "jekyll-avatar"
+    gem "jemoji"
+  end
+
