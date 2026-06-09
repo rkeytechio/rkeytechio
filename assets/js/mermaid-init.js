@@ -45,6 +45,40 @@ document.addEventListener('DOMContentLoaded', function () {
     var content = document.createElement('div');
     content.className = 'mermaid-modal-content';
 
+    // toolbar for zoom controls
+    var toolbar = document.createElement('div');
+    toolbar.className = 'mermaid-modal-toolbar';
+    toolbar.setAttribute('aria-hidden', 'false');
+
+    var btnZoomIn = document.createElement('button');
+    btnZoomIn.type = 'button';
+    btnZoomIn.className = 'mermaid-modal-zoom-in';
+    btnZoomIn.textContent = '+';
+    btnZoomIn.title = 'Zoom in';
+
+    var btnZoomOut = document.createElement('button');
+    btnZoomOut.type = 'button';
+    btnZoomOut.className = 'mermaid-modal-zoom-out';
+    btnZoomOut.textContent = '−';
+    btnZoomOut.title = 'Zoom out';
+
+    var btnFit = document.createElement('button');
+    btnFit.type = 'button';
+    btnFit.className = 'mermaid-modal-fit';
+    btnFit.textContent = 'Fit';
+    btnFit.title = 'Fit to view';
+
+    var btnReset = document.createElement('button');
+    btnReset.type = 'button';
+    btnReset.className = 'mermaid-modal-reset';
+    btnReset.textContent = 'Reset';
+    btnReset.title = 'Reset zoom/pan';
+
+    toolbar.appendChild(btnZoomOut);
+    toolbar.appendChild(btnZoomIn);
+    toolbar.appendChild(btnFit);
+    toolbar.appendChild(btnReset);
+
     var close = document.createElement('button');
     close.className = 'mermaid-modal-close';
     close.innerHTML = '&times;';
@@ -52,18 +86,136 @@ document.addEventListener('DOMContentLoaded', function () {
     close.setAttribute('aria-label', 'Close diagram viewer');
 
     wrapper.appendChild(close);
+    wrapper.appendChild(toolbar);
     wrapper.appendChild(content);
     overlay.appendChild(wrapper);
     document.body.appendChild(overlay);
 
     // Close handlers
     close.addEventListener('click', function () { closeModal(); });
+    // Toolbar button handlers (delegated later from openModal)
     overlay.addEventListener('click', function (e) {
       if (e.target === overlay) closeModal();
     });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeModal();
     });
+  }
+
+  // Setup pan/zoom for appended svg inside modal content
+  function setupPanZoom(content) {
+    teardownPanZoom(content);
+    var viewport = document.createElement('div');
+    viewport.className = 'mermaid-modal-viewport';
+    var panwrap = document.createElement('div');
+    panwrap.className = 'mermaid-modal-panwrap';
+
+    // Move existing children (svg) into panwrap
+    while (content.firstChild) {
+      panwrap.appendChild(content.firstChild);
+    }
+    viewport.appendChild(panwrap);
+    content.appendChild(viewport);
+
+    var state = {
+      scale: 1,
+      tx: 0,
+      ty: 0,
+      dragging: false,
+      lastX: 0,
+      lastY: 0
+    };
+    content.__panState = state;
+
+    function apply() {
+      panwrap.style.transform = 'translate(' + state.tx + 'px,' + state.ty + 'px) scale(' + state.scale + ')';
+    }
+
+    function fit() {
+      var svg = panwrap.querySelector('svg');
+      if (!svg) return;
+      var bbox;
+      try {
+        bbox = svg.getBBox();
+      } catch (e) {
+        // fallback to bounding client rect
+        var r = svg.getBoundingClientRect();
+        bbox = { x: 0, y: 0, width: r.width, height: r.height };
+      }
+      var vw = viewport.clientWidth;
+      var vh = viewport.clientHeight;
+      if (bbox.width === 0 || bbox.height === 0) return;
+      var s = Math.min(vw / bbox.width, vh / bbox.height) * 0.95;
+      state.scale = s;
+      state.tx = (vw - bbox.width * s) / 2 - bbox.x * s;
+      state.ty = (vh - bbox.height * s) / 2 - bbox.y * s;
+      apply();
+    }
+
+    function onWheel(e) {
+      e.preventDefault();
+      var delta = e.deltaY < 0 ? 1.1 : 1 / 1.1;
+      var rect = viewport.getBoundingClientRect();
+      var cx = e.clientX - rect.left;
+      var cy = e.clientY - rect.top;
+      var newScale = Math.max(0.1, Math.min(10, state.scale * delta));
+      // keep point under cursor stationary
+      state.tx = state.tx - (cx) * (newScale / state.scale - 1);
+      state.ty = state.ty - (cy) * (newScale / state.scale - 1);
+      state.scale = newScale;
+      apply();
+    }
+
+    function onDown(e) {
+      state.dragging = true;
+      state.lastX = e.clientX;
+      state.lastY = e.clientY;
+      viewport.style.cursor = 'grabbing';
+      e.preventDefault();
+    }
+    function onMove(e) {
+      if (!state.dragging) return;
+      var dx = e.clientX - state.lastX;
+      var dy = e.clientY - state.lastY;
+      state.lastX = e.clientX;
+      state.lastY = e.clientY;
+      state.tx += dx;
+      state.ty += dy;
+      apply();
+    }
+    function onUp() {
+      state.dragging = false;
+      viewport.style.cursor = 'grab';
+    }
+
+    // Buttons wired via delegation on overlay when open
+    viewport.addEventListener('wheel', onWheel, { passive: false });
+    viewport.addEventListener('mousedown', onDown);
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+
+    // expose helpers
+    content.__panHelpers = { fit: fit, apply: apply };
+    // initial fit
+    setTimeout(fit, 30);
+  }
+
+  function teardownPanZoom(content) {
+    if (!content) return;
+    var state = content.__panState;
+    if (state) {
+      // remove listeners: best-effort - rely on content being replaced on close
+      content.__panState = null;
+    }
+    // If viewport exists, unwrap its children back into content (will be cleared by open/close)
+    var viewport = content.querySelector('.mermaid-modal-viewport');
+    if (viewport) {
+      var panwrap = viewport.querySelector('.mermaid-modal-panwrap');
+      if (panwrap) {
+        while (panwrap.firstChild) content.appendChild(panwrap.firstChild);
+      }
+      viewport.remove();
+    }
   }
 
   function openModal(svgNode) {
@@ -75,12 +227,11 @@ document.addEventListener('DOMContentLoaded', function () {
     try {
       var html = svgNode.outerHTML || svgNode.cloneNode(true).outerHTML;
       content.insertAdjacentHTML('beforeend', html);
-      // Ensure appended svg can scale
       var appended = content.querySelector('svg');
       if (appended) {
-        // Force responsive sizing inside the modal
-        appended.setAttribute('width', '100%');
-        appended.style.height = 'auto';
+        // Remove hard width/height to allow transform-based pan/zoom
+        appended.removeAttribute('width');
+        appended.removeAttribute('height');
         appended.style.display = 'block';
         if (!appended.getAttribute('xmlns')) appended.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
         if (!appended.getAttribute('xmlns:xlink')) appended.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink');
@@ -105,6 +256,58 @@ document.addEventListener('DOMContentLoaded', function () {
     if (closeBtn && closeBtn.focus) {
       closeBtn.focus();
     }
+    
+    // Setup pan/zoom on content
+    try {
+      setupPanZoom(content);
+    } catch (err) {
+      console.warn('Pan/zoom setup failed:', err);
+    }
+
+    // wire toolbar buttons
+    var overlayRoot = document.querySelector('.mermaid-modal-overlay');
+    try {
+      overlayRoot.querySelector('.mermaid-modal-zoom-in').addEventListener('click', function () {
+        var contentEl = document.querySelector('.mermaid-modal-content');
+        if (!contentEl || !contentEl.__panState) return;
+        contentEl.__panState.scale = Math.min(10, contentEl.__panState.scale * 1.2);
+        contentEl.__panHelpers.apply();
+      });
+      overlayRoot.querySelector('.mermaid-modal-zoom-out').addEventListener('click', function () {
+        var contentEl = document.querySelector('.mermaid-modal-content');
+        if (!contentEl || !contentEl.__panState) return;
+        contentEl.__panState.scale = Math.max(0.1, contentEl.__panState.scale / 1.2);
+        contentEl.__panHelpers.apply();
+      });
+      overlayRoot.querySelector('.mermaid-modal-fit').addEventListener('click', function () {
+        var contentEl = document.querySelector('.mermaid-modal-content');
+        if (!contentEl || !contentEl.__panHelpers) return;
+        contentEl.__panHelpers.fit();
+      });
+      overlayRoot.querySelector('.mermaid-modal-reset').addEventListener('click', function () {
+        var contentEl = document.querySelector('.mermaid-modal-content');
+        if (!contentEl || !contentEl.__panState) return;
+        contentEl.__panState.scale = 1; contentEl.__panState.tx = 0; contentEl.__panState.ty = 0; contentEl.__panHelpers.apply();
+      });
+    } catch (e) {
+      // ignore button wiring errors
+    }
+
+    // keyboard + / - for zoom
+    function onKey(e) {
+      var contentEl = document.querySelector('.mermaid-modal-content');
+      if (!contentEl || !contentEl.__panState) return;
+      if (e.key === '+') {
+        contentEl.__panState.scale = Math.min(10, contentEl.__panState.scale * 1.2);
+        contentEl.__panHelpers.apply();
+      } else if (e.key === '-') {
+        contentEl.__panState.scale = Math.max(0.1, contentEl.__panState.scale / 1.2);
+        contentEl.__panHelpers.apply();
+      }
+    }
+    document.addEventListener('keydown', onKey);
+    // store to remove later
+    overlayRoot.__onKey = onKey;
   }
 
   function closeModal() {
@@ -112,7 +315,10 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!overlay) return;
     overlay.classList.remove('open');
     var content = document.querySelector('.mermaid-modal-content');
-    if (content) content.innerHTML = '';
+    if (content) {
+      teardownPanZoom(content);
+      content.innerHTML = '';
+    }
     document.documentElement.style.overflow = '';
     // restore focus to the triggering element if present
     try {
@@ -123,6 +329,15 @@ document.addEventListener('DOMContentLoaded', function () {
       // ignore
     }
     window.__lastMermaidTrigger = null;
+    // remove keyboard handler if any
+    try {
+      if (overlay && overlay.__onKey) {
+        document.removeEventListener('keydown', overlay.__onKey);
+        overlay.__onKey = null;
+      }
+    } catch (e) {
+      // ignore
+    }
   }
 
   // Attach click handlers to rendered Mermaid diagrams (delegation to handle dynamically added content)
