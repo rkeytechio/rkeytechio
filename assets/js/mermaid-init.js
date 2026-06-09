@@ -70,12 +70,24 @@ document.addEventListener('DOMContentLoaded', function () {
     var overlay = document.querySelector('.mermaid-modal-overlay');
     var content = document.querySelector('.mermaid-modal-content');
     content.innerHTML = '';
-    // Clone the SVG so original remains in place
+    // Clone the node so original remains in place. Accept either an SVG node or a wrapper div.
     var clone = svgNode.cloneNode(true);
-    // Remove any width/height attributes that may restrict scaling
-    clone.removeAttribute('width');
-    clone.removeAttribute('height');
-    content.appendChild(clone);
+    // If the cloned node is an SVG, remove explicit size attributes so it can scale.
+    if (clone.nodeName && clone.nodeName.toLowerCase() === 'svg') {
+      clone.removeAttribute('width');
+      clone.removeAttribute('height');
+      content.appendChild(clone);
+    } else {
+      // If it's a container, remove width/height on any inner SVGs and append the whole container.
+      var svgs = clone.querySelectorAll && clone.querySelectorAll('svg');
+      if (svgs && svgs.length) {
+        svgs.forEach(function (s) {
+          s.removeAttribute('width');
+          s.removeAttribute('height');
+        });
+      }
+      content.appendChild(clone);
+    }
     overlay.classList.add('open');
     // prevent body scroll when open
     document.documentElement.style.overflow = 'hidden';
@@ -92,18 +104,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Attach click handlers to rendered Mermaid diagrams (delegation to handle dynamically added content)
   document.addEventListener('click', function (e) {
+    // Ignore clicks inside the modal overlay (so cloned content won't re-trigger)
+    if (e.target.closest && e.target.closest('.mermaid-modal-overlay')) return;
+
     var target = e.target;
-    // If clicked directly inside an SVG element produced by mermaid
     if (target.closest) {
       var mermaidDiv = target.closest('.mermaid');
       if (mermaidDiv) {
         var svg = mermaidDiv.querySelector('svg');
+        mermaidDiv.classList.add('mermaid-figure');
         if (svg) {
-          // Mark the mermaid div as figure-like for styling
-          mermaidDiv.classList.add('mermaid-figure');
           openModal(svg);
-          return;
+        } else {
+          // Fallback: clone the whole mermaid container
+          openModal(mermaidDiv);
         }
+        return;
       }
     }
   });
