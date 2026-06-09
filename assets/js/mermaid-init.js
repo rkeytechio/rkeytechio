@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var close = document.createElement('button');
     close.className = 'mermaid-modal-close';
     close.innerHTML = '&times;';
+    close.setAttribute('type', 'button');
     close.setAttribute('aria-label', 'Close diagram viewer');
 
     wrapper.appendChild(close);
@@ -77,8 +78,10 @@ document.addEventListener('DOMContentLoaded', function () {
       // Ensure appended svg can scale
       var appended = content.querySelector('svg');
       if (appended) {
-        appended.removeAttribute('width');
-        appended.removeAttribute('height');
+        // Force responsive sizing inside the modal
+        appended.setAttribute('width', '100%');
+        appended.style.height = 'auto';
+        appended.style.display = 'block';
         if (!appended.getAttribute('xmlns')) appended.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
         if (!appended.getAttribute('xmlns:xlink')) appended.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink');
       }
@@ -97,6 +100,11 @@ document.addEventListener('DOMContentLoaded', function () {
     overlay.classList.add('open');
     // prevent body scroll when open
     document.documentElement.style.overflow = 'hidden';
+    // focus the close button for keyboard users
+    var closeBtn = document.querySelector('.mermaid-modal-close');
+    if (closeBtn && closeBtn.focus) {
+      closeBtn.focus();
+    }
   }
 
   function closeModal() {
@@ -106,6 +114,15 @@ document.addEventListener('DOMContentLoaded', function () {
     var content = document.querySelector('.mermaid-modal-content');
     if (content) content.innerHTML = '';
     document.documentElement.style.overflow = '';
+    // restore focus to the triggering element if present
+    try {
+      if (window.__lastMermaidTrigger && window.__lastMermaidTrigger.focus) {
+        window.__lastMermaidTrigger.focus();
+      }
+    } catch (e) {
+      // ignore
+    }
+    window.__lastMermaidTrigger = null;
   }
 
   // Attach click handlers to rendered Mermaid diagrams (delegation to handle dynamically added content)
@@ -119,6 +136,8 @@ document.addEventListener('DOMContentLoaded', function () {
       if (mermaidDiv) {
         var svg = mermaidDiv.querySelector('svg');
         mermaidDiv.classList.add('mermaid-figure');
+        // store trigger for focus restoration
+        window.__lastMermaidTrigger = mermaidDiv;
         if (svg) {
           openModal(svg);
         } else {
