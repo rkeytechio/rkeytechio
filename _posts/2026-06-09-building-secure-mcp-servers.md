@@ -17,8 +17,6 @@ header:
 excerpt: Understanding how MCP works so that enterprise-grade systems can discover, authenticate, authorise, and expose tools based on user permissions.
 ---
 
-# MCP Explained: The Missing Piece Most Introductions Skip
-
 I've spent a fair amount of time recently working with the Model Context Protocol (MCP), and I kept running into the same problem.
 
 There are plenty of articles explaining *what* MCP is, but very few explaining how it actually works in a real-world implementation.
@@ -33,7 +31,7 @@ How does a MCP client discover tools? When does authentication happen? Does the 
 
 After digging through specifications, implementations, and building my own understanding, I wanted to write the explanation I wish I had found earlier.
 
-## MCP Is More Than AI Calling APIs
+# MCP Is More Than AI Calling APIs
 
 A common misconception is that MCP is simply a protocol for letting AI call APIs.
 
@@ -47,7 +45,7 @@ The key word here is **discover**.
 
 That single concept explains much of how MCP works.
 
-## The Actors
+# The Actors
 
 At a high level there are four participants:
 
@@ -63,7 +61,7 @@ The MCP Server exposes capabilities. In other words, the server publishes a set 
 
 To make this concrete, imagine a Service Desk MCP Server offering tools such as Search Customer, Create Ticket, Delete Customer, and Reset Password. The client does not necessarily know about these tools ahead of time, it discovers them dynamically from the server.
 
-## The Question Most People Ask
+# The Question Most People Ask
 
 The first thing I wanted to understand was:
 
@@ -88,7 +86,7 @@ This means tool discovery becomes more than a technical (pre user) operation.
 
 It becomes an authorisation decision.
 
-## Discovery Is Usually User-Aware
+# Discovery Is Usually User-Aware
 
 In enterprise environments, tool discovery should happen after the user has authenticated.
 
@@ -102,7 +100,7 @@ The AI is not discovering *all* available tools.
 
 It is discovering the tools available to *that user*.
 
-## Where OAuth Fits In
+# Where OAuth Fits In
 
 Another area that often causes confusion is authentication.
 
@@ -120,7 +118,7 @@ Authorization: Bearer eyJ...
 
 The token becomes the user's identity throughout the MCP session.
 
-## End-to-End Flow
+# End-to-End Flow
 
 The following sequence illustrates a typical authenticated MCP interaction.
 
@@ -178,7 +176,7 @@ sequenceDiagram
     LLM-->>User: Final Answer
 ```
 
-## Discovery Is Not Security
+# Discovery Is Not Security
 
 One important detail is that hiding a tool from discovery should never be your only security control.
 
@@ -192,7 +190,7 @@ Even if a user somehow attempts to invoke a tool directly, the server should sti
 
 Tool discovery and tool authorisation are related, but they are not the same thing.
 
-## The Mental Model That Made It Click
+# The Mental Model That Made It Click
 
 The easiest way I have found to explain MCP is to compare it to onboarding a new employee.
 
@@ -212,7 +210,7 @@ The AI doesn't arrive with knowledge of your tools. It authenticates, discovers 
 
 Once you start thinking about MCP as a combination of **identity, discovery, and execution**, rather than simply "AI calling APIs", the architecture becomes much easier to understand.
 
-## Final Thoughts
+# Final Thoughts
 
 Many MCP introductions focus heavily on tools and not enough on identity.
 
@@ -224,6 +222,6 @@ That is why authentication, authorisation, discovery, and execution are closely 
 
 Understanding that relationship is the missing piece that many high-level explanations leave out, and it is often the key to understanding how MCP works in real enterprise systems.
 
-## What's Next
+# What's Next
 
 In a follow-up post I will put together a concrete, end-to-end Service Desk example: a minimal MCP Server, OAuth configuration, tool schemas (Search Customer, Create Ticket, Delete Customer, Reset Password), and a step-by-step walkthrough showing discovery, authorisation, and execution. If you have a preferred language or platform (Node.js, Python, or .NET), tell me and I will prioritise that in the example.
