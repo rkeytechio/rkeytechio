@@ -70,21 +70,27 @@ document.addEventListener('DOMContentLoaded', function () {
     var overlay = document.querySelector('.mermaid-modal-overlay');
     var content = document.querySelector('.mermaid-modal-content');
     content.innerHTML = '';
-    // Clone the node so original remains in place. Accept either an SVG node or a wrapper div.
-    var clone = svgNode.cloneNode(true);
-    // If the cloned node is an SVG, remove explicit size attributes so it can scale.
-    if (clone.nodeName && clone.nodeName.toLowerCase() === 'svg') {
-      clone.removeAttribute('width');
-      clone.removeAttribute('height');
-      content.appendChild(clone);
-    } else {
-      // If it's a container, remove width/height on any inner SVGs and append the whole container.
-      var svgs = clone.querySelectorAll && clone.querySelectorAll('svg');
-      if (svgs && svgs.length) {
-        svgs.forEach(function (s) {
-          s.removeAttribute('width');
-          s.removeAttribute('height');
-        });
+    // Safer approach: use outerHTML so namespace and inner <style>/<defs> remain intact
+    try {
+      var html = svgNode.outerHTML || svgNode.cloneNode(true).outerHTML;
+      content.insertAdjacentHTML('beforeend', html);
+      // Ensure appended svg can scale
+      var appended = content.querySelector('svg');
+      if (appended) {
+        appended.removeAttribute('width');
+        appended.removeAttribute('height');
+        if (!appended.getAttribute('xmlns')) appended.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+        if (!appended.getAttribute('xmlns:xlink')) appended.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink');
+      }
+    } catch (err) {
+      // fallback to cloneNode if outerHTML isn't available
+      var clone = svgNode.cloneNode(true);
+      if (clone.nodeName && clone.nodeName.toLowerCase() === 'svg') {
+        clone.removeAttribute('width');
+        clone.removeAttribute('height');
+      } else if (clone.querySelectorAll) {
+        var svgs = clone.querySelectorAll('svg');
+        svgs.forEach(function (s) { s.removeAttribute('width'); s.removeAttribute('height'); });
       }
       content.appendChild(clone);
     }
