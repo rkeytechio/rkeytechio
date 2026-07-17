@@ -1,5 +1,9 @@
 # main links
 main:
+  - title: "Blogs"
+    url: /blogs
+  - title: "K Talks"
+    url: /k-talks
   - title: "Speaking Events"
     url: /events
   - title: "About"
