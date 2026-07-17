@@ -141,6 +141,26 @@ footer:
       icon: "fab fa-linkedin"
       url: "https://www.linkedin.com/company/rkeytechio"
 
+home_links:
+  blogs:
+    url: /blogs
+  k_talks:
+    url: /k-talks
+  linkedin:
+    url: https://www.linkedin.com/in/randiratnayake
+  sessionize:
+    url: https://sessionize.com/randiratnayake/
+
+meetup_groups:
+  - name: Azure Builders Melbourne
+    url: https://www.meetup.com/azure-builders-melbourne/
+  - name: Melbourne Azure Nights
+    url: https://www.meetup.com/melbourne-azure-nights/
+  - name: Melb .NET Meetup
+    url: https://www.meetup.com/melb-net-meetup/
+  - name: Melbourne Data Platform User Group
+    url: https://www.meetup.com/en-au/melbourne-data-platform-user-group/
+
 # Reading Files
 include:
   - .htaccess
