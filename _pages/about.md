@@ -7,42 +7,38 @@ author_profile: false
 permalink: /about/
 share: false
 ---
-Hey there
-<img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" alt="hand wave" width="25px">, **I'm Randi**! Thank you for stopping by **rkeytech.io**
 
-It is my way of giving back to my (Tech) community. This is my space to express my views and share knowledge and best practices in various areas I have worked on and am passionate about. It is my way of saying Thank you!
+## 👋 Hi, I'm Randi
 
-## 😄 About Me
-<img class="img-fluid w-50" src="/assets/images/RR-Profile-Picture.png" alt="RR" width="300px" style="display: block;margin-left: auto;margin-right: auto;">
-I am a **thinker**, **solver**, **challenge seeker** and **mentor**. I look at practical ways of achieving innovation in work or personal life. I like my imagination without boundaries and always go beyond my comfort zone to deliver the best attainable outcome to my duties.
+Welcome to **rkeytech.io**.
 
-## 👨‍💻What I do
-I work as a Cloud Architect, DevSecOps Evangelist and Mentor in my current role. I am a **consultant** and a **full-stack software developer** in my heart. My experience has been in **Microsoft** stack for more than a decade. I still love to cut code when I get a chance. Even on the weekend (_If time allows_) to help someone in <a
-    href="https://stackoverflow.com/users/{{ site.author.stackoverflow }}" target="_blank" rel="nofollow noopener noreferrer">
-    <i class="fab fa-fw fa-stack-overflow" aria-hidden="true"></i>
-    StackOverflow
-</a>
-or to create a
-<a
-    href="https://github.com/{{ site.author.github }}" target="_blank" rel="nofollow noopener noreferrer">
-    <i class="fab fa-fw fa-github" aria-hidden="true"></i>
-    GitHub
-</a>
-pull request.
+I'm a Cloud Architect, Consultant, Developer, DevSecOps advocate, and mentor who enjoys solving complex problems and sharing practical knowledge with the wider technology community.
 
-As a **Cloud Architect**, I assist my clients and teams in leveraging cloud technologies like **Azure** and **Aws** nd help them thrive in their cloud adoption journey. **DevSecOps** is my speciality and what I am passionate about the most. Beyond all, I like to share my experience and knowledge. So as a **Microsoft certified trainer**, I train teams who wish to get on top of the Azure technology stack.
+<img class="img-fluid w-50" src="/assets/images/RR-Profile-Picture.png" alt="Randi Ratnayake" width="300px" style="display: block; margin-left: auto; margin-right: auto;">
 
-## ✍Desclaimer
-Consider any opinions expressed here are as my own.
+This is my digital notebook, a place where I share the things I've learned throughout my career and a way of giving back to my community. Here you'll find technical blogs, architecture and engineering write-ups, code examples, best practices, and recordings of my community talks and conference sessions. My goal is to create practical, experience-driven content that helps others learn, build better software, and stay current with modern technologies.
 
-## 😜I like good humor and here is a one for you 
+I've spent many years working across different industries, helping people and organisations solve a wide variety of challenges. While technology is often part of the solution, I've learned that it isn't always *the* solution. The best outcomes come from understanding the people, the problem, and the context before choosing the technology. That's the mindset I bring to every project, every conversation, and every article I write.
+
+I'm still an engineer at heart and genuinely enjoy break and building things, exploring new technologies, and continuously learning. I embrace AI as a tool, not as a replacement for experience. Some code samples or examples in here may be assisted by AI, just as we've embraced IDEs, IntelliSense, debuggers, and spell checkers over the years. But every blog or talk begins with a real problem, a real lesson, or a real experience. I enjoy the craft of writing and believe thoughtful, experience-driven content is what moves our industry forward. Someone still needs to ask the hard questions, solve the problems, and share those lessons so that both people and AI can continue to learn.
+
+As a Microsoft Certified Trainer (MCT) and regular speaker at user groups and technology conferences, I enjoy sharing real-world experiences and helping others grow in their careers. Whether you're new to the industry or a seasoned professional looking for practical insights, I also offer mentoring. Much of the content on this site is drawn from practical project work, lessons learned in the field, and the technologies I'm currently exploring, including cloud architecture, Azure, security, DevSecOps, Microsoft Foundry, and modern software engineering practices.
+
+### Quick Note
+
+Everything published here reflects my personal experience and opinions and does not necessarily represent the views of my employer or clients.
+
+### 😜 I Like Good Humor, and Here Is One for You
+
 ![Jokes Placeholder](https://readme-jokes.vercel.app/api)
 
+### Let's Connect
 
-## 📫 Contact Info
+If you have a question, feedback, or simply want to connect, I'd be happy to hear from you.
 
-Here is how to get in touch with me:
-<p align='center'>
-    <a rel="me" href="https://www.linkedin.com/in/randiratnayake/"><img alt="LinkedIn" src="https://img.shields.io/badge/linkedin-0077B5?logo=linkedin&logoColor=white&style=for-the-badge"></a>
-    <a rel="me" href="https://twitter.com/rkeytechio"><img height="30" alt="Twitter" src="https://img.shields.io/badge/Twitter-1DA1F2?logo=twitter&logoColor=white&style=for-the-badge"></a>
-</p>
+<div class="action-links">
+    <a class="btn btn--linkedin" href="{{ site.home_links.linkedin.url }}" target="_blank" rel="nofollow noopener noreferrer">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
+        LinkedIn
+    </a>
+</div>

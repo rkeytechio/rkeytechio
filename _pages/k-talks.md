@@ -21,36 +21,6 @@ classes: wide
     color: #4b5563;
   }
 
-  .ktalks-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin: 0.75rem 0 1rem;
-  }
-
-  .ktalks-actions .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.45rem;
-    padding: 0;
-    min-height: 0;
-    line-height: 1;
-    box-sizing: border-box;
-    border-radius: 0;
-    font-weight: 700;
-    border: 0;
-    text-decoration: none;
-    background: transparent;
-  }
-
-  .ktalks-actions .btn:hover,
-  .ktalks-actions .btn:focus {
-    text-decoration: none;
-    text-shadow: 0 0 8px currentColor;
-    filter: drop-shadow(0 0 4px currentColor);
-  }
-
   .ktalks-platform-icon {
     width: 0.95em;
     height: 0.95em;
@@ -89,14 +59,6 @@ classes: wide
   .btn--upcoming:hover,
   .btn--upcoming:focus {
     color: #111827;
-  }
-
-  .ktalks-actions .btn--linkedin,
-  .ktalks-actions .btn--linkedin:visited,
-  .ktalks-actions .btn--linkedin:hover,
-  .ktalks-actions .btn--linkedin:focus {
-    color: #0a66c2 !important;
-    opacity: 1;
   }
 
   .btn--plain-link {
@@ -207,7 +169,7 @@ No community talks listed yet.
 
 If you like what you have seen and would like me to speak in your community next, or collaborate with me on your YouTube channel or podcast, reach out to me via:
 
-<div class="ktalks-actions">
+<div class="action-links">
   <a class="btn btn--linkedin" href="{{ site.home_links.linkedin.url }}" target="_blank" rel="nofollow noopener noreferrer">
     <i class="fab fa-linkedin" aria-hidden="true"></i>
     LinkedIn

@@ -1,5 +1,4 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
 ---
 
 @charset "utf-8";
@@ -82,4 +81,42 @@ a {
   .landing .btn {
     font-size: 1rem;
     color: $white;
+  }
+
+  .action-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 0.75rem 0 1rem;
+  }
+
+  .action-links .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    padding: 0;
+    min-height: 0;
+    line-height: 1;
+    box-sizing: border-box;
+    border-radius: 0;
+    font-weight: 700;
+    border: 0;
+    text-decoration: none;
+    background: transparent;
+  }
+
+  .action-links .btn:hover,
+  .action-links .btn:focus {
+    text-decoration: none;
+    text-shadow: 0 0 8px currentColor;
+    filter: drop-shadow(0 0 4px currentColor);
+  }
+
+  .action-links .btn--linkedin,
+  .action-links .btn--linkedin:visited,
+  .action-links .btn--linkedin:hover,
+  .action-links .btn--linkedin:focus {
+    color: #0a66c2 !important;
+    opacity: 1;
   }
