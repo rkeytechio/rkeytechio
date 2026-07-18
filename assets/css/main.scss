@@ -95,44 +95,60 @@ a {
     align-items: center;
     justify-content: center;
     gap: 0.45rem;
-    padding: 0;
-    min-height: 0;
-    line-height: 1;
+    margin: 0;
+    padding: 0.5rem 0.85rem;
+    min-height: 2.25rem;
+    line-height: 1.1;
     box-sizing: border-box;
-    border-radius: 0;
+    border-radius: 0.3rem;
     font-weight: 700;
     border: 0;
     text-decoration: none;
-    background: transparent;
+    color: #ffffff !important;
+    transition: background-color 0.2s ease, transform 0.2s ease;
   }
 
   .action-links .btn:hover,
   .action-links .btn:focus {
     text-decoration: none;
-    text-shadow: 0 0 8px currentColor;
-    filter: drop-shadow(0 0 4px currentColor);
+    transform: translateY(-1px);
   }
 
   .action-links .btn--linkedin,
   .action-links .btn--linkedin:visited,
   .action-links .btn--linkedin:hover,
   .action-links .btn--linkedin:focus {
-    color: #0a66c2 !important;
+    background-color: #0a66c2 !important;
     opacity: 1;
+  }
+
+  .action-links .btn--linkedin:hover,
+  .action-links .btn--linkedin:focus {
+    background-color: #084f99 !important;
   }
 
   .action-links .btn--sessionize,
   .action-links .btn--sessionize:visited,
   .action-links .btn--sessionize:hover,
   .action-links .btn--sessionize:focus {
-    color: #2851d8 !important;
+    background-color: #2851d8 !important;
     opacity: 1;
+  }
+
+  .action-links .btn--sessionize:hover,
+  .action-links .btn--sessionize:focus {
+    background-color: #1f3fa8 !important;
   }
 
   .action-links .btn--youtube,
   .action-links .btn--youtube:visited,
   .action-links .btn--youtube:hover,
   .action-links .btn--youtube:focus {
-    color: #ff0033 !important;
+    background-color: #e11d48 !important;
     opacity: 1;
+  }
+
+  .action-links .btn--youtube:hover,
+  .action-links .btn--youtube:focus {
+    background-color: #be123c !important;
   }
