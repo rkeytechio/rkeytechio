@@ -1,5 +1,5 @@
 ---
-title: "About Author"
+title: "About Me"
 layout: single
 excerpt: 'Cloud Architect | DevSecOps Evangelist | Mentor'
 sitemap: false
