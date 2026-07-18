@@ -34,24 +34,6 @@ classes: wide
     border-radius: 0;
   }
 
-  .btn--youtube {
-    color: #ff0033;
-  }
-
-  .btn--youtube:hover,
-  .btn--youtube:focus {
-    color: #ff0033;
-  }
-
-  .btn--sessionize {
-    color: #2851d8;
-  }
-
-  .btn--sessionize:hover,
-  .btn--sessionize:focus {
-    color: #2851d8;
-  }
-
   .btn--upcoming {
     color: #111827;
   }
@@ -61,16 +43,6 @@ classes: wide
     color: #111827;
   }
 
-  .btn--plain-link {
-    color: #ff0033;
-    font-weight: 700;
-  }
-
-  .btn--plain-link:hover,
-  .btn--plain-link:focus {
-    color: #ff0033;
-    text-decoration: none;
-  }
 
   .ktalks-grid {
     display: grid;
@@ -178,13 +150,9 @@ If you like what you have seen and would like me to speak in your community next
     <img class="ktalks-platform-img" src="https://sessionize.com/favicon.ico" alt="Sessionize icon">
     Book Me On Sessionize
   </a>
-  <a class="btn btn--plain-link" href="{{ ktalks.youtube_channel_url }}" target="_blank" rel="nofollow noopener noreferrer">
+  <a class="btn btn--youtube" href="{{ ktalks.youtube_channel_url }}" target="_blank" rel="nofollow noopener noreferrer">
     <i class="fab fa-youtube" aria-hidden="true"></i>
     YouTube
-  </a>
-  <a class="btn btn--upcoming" href="/events/">
-    <i class="fa fa-calendar-alt" aria-hidden="true"></i>
-    Upcoming Talks
   </a>
 </div>
 
